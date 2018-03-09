@@ -9,14 +9,20 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  */
 public class Center extends CommandGroup {
-	public Center(Robot robot) {
+	public enum switchPosition {
+		LEFT, RIGHT
+	}
+	private switchPosition switchPosition;
+	
+	public Center(Robot robot, switchPosition switchPosition) {
+		this.switchPosition = switchPosition;
 		// Hold onto the cube
 		addSequential(new CloseClaw(robot.claw));
 
-		// Flop and lift simultaneously
+		// Lift arm
 		addSequential(new AutoLift(robot.lifter, 1.0, 1.7));
 
-		// Drive to auto line, but turn left first to avoid the pile of power cubes
-		addSequential(new AutoDrive(robot.drivetrain, 0.7, 3.5)); 
+		// Drive to Switch, based on switchPosition
+		addSequential(new AutoDrive(robot.drivetrain, 0.7, 0.8));
 	}
 }
