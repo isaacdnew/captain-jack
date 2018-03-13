@@ -101,7 +101,7 @@ public class Robot extends TimedRobot {
 				System.out.println("LRight");
 				break;
 			case CENTER:
-				autonomousCommand = new Center(this, Center.switchPosition.LEFT);
+				autonomousCommand = new Center(this, Center.SwitchPosition.LEFT);
 				System.out.println("L-Center");
 				break;
 			default:
@@ -119,7 +119,7 @@ public class Robot extends TimedRobot {
 				System.out.println("RRight");
 				break;
 			case CENTER:
-				autonomousCommand = new Center(this, Center.switchPosition.LEFT);
+				autonomousCommand = new Center(this, Center.SwitchPosition.LEFT);
 				System.out.println("R-Center");
 				break;
 			default:
